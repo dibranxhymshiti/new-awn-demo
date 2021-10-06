@@ -71,6 +71,6 @@ export const useLayoutStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0)
   },
   active: {
-    backgroundColor: theme.palette.grey['300']
+    backgroundColor: '#F6F7FB'
   }
 }));

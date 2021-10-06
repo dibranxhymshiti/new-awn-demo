@@ -36,7 +36,7 @@ const Users = () => {
             startIcon={<AddIcon />}
             onClick={() => history.push(`${USERS}/create`)}
           >
-            Shto perdorues
+            Add Talent
           </Button>
         </Box>
       </Box>
@@ -46,10 +46,10 @@ const Users = () => {
           <TableHead>
             <TableRow>
               <TableCell>Nr</TableCell>
-              <TableCell>Emri</TableCell>
-              <TableCell>Mbiemri</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Lastname</TableCell>
               <TableCell>Email</TableCell>
-              <TableCell>Roli</TableCell>
+              <TableCell>Role</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

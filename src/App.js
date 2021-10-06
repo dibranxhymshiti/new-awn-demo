@@ -7,6 +7,13 @@ const App = () => {
   const theme = createTheme({
     palette: {
       primary: blue
+    },
+    components: {
+      MuiTextField: {
+        defaultProps: {
+          variant: 'outlined'
+        }
+      }
     }
   });
   return (

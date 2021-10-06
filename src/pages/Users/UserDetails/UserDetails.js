@@ -30,12 +30,13 @@ const UserDetails = () => {
   return (
     <PaperPadding>
       <Box mb={3}>
-        <Typography variant="h6">Ndrysho perdoruesin</Typography>
+        <Typography variant="h6">Update Talent</Typography>
       </Box>
       <Grid container spacing={6}>
         <Grid item xs={12} sm={6}>
           <TextField
-            label="Emri"
+            variant="outlined"
+            label="Name"
             name="firstName"
             id="firstName"
             required
@@ -45,7 +46,8 @@ const UserDetails = () => {
 
         <Grid item xs={12} sm={6}>
           <TextField
-            label="Mbiemri"
+            variant="outlined"
+            label="Lastname"
             name="lastName"
             id="lastName"
             required
@@ -54,11 +56,19 @@ const UserDetails = () => {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <TextField label="Email" name="email" id="email" required fullWidth />
+          <TextField
+            variant="outlined"
+            label="Email"
+            name="email"
+            id="email"
+            required
+            fullWidth
+          />
         </Grid>
 
         <Grid item xs={12} sm={6}>
           <TextField
+            variant="outlined"
             label="Password"
             name="password"
             id="password"
@@ -71,7 +81,8 @@ const UserDetails = () => {
         <Grid container item justifyContent="space-between">
           <Grid item xs={6} md={2}>
             <TextField
-              label="Roli"
+              variant="outlined"
+              label="Role"
               id="role"
               select
               fullWidth
@@ -95,7 +106,7 @@ const UserDetails = () => {
             alignItems="flex-end"
           >
             <Button variant="contained" color="primary">
-              Ruaj
+              Save
             </Button>
           </Grid>
         </Grid>
