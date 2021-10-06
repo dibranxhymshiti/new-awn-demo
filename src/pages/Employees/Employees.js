@@ -54,7 +54,7 @@ const Employees = (props) => {
       <Box display="flex" alignItems="center" mb={3}>
         <Box>
           <TextField
-            label="Kerko punetorin"
+            label="Search"
             onChange={(e) => setSearch(e.target.value)}
           />
         </Box>
@@ -66,7 +66,7 @@ const Employees = (props) => {
             startIcon={<AddIcon />}
             onClick={() => history.push(`${EMPLOYEES}/create`)}
           >
-            Shto punetor
+            Add employee
           </Button>
         </Box>
       </Box>
@@ -76,10 +76,10 @@ const Employees = (props) => {
           <TableHead>
             <TableRow>
               <TableCell>Nr</TableCell>
-              <TableCell>Emri</TableCell>
-              <TableCell>Mbiemri</TableCell>
-              <TableCell>Mosha</TableCell>
-              <TableCell>Paga ditore</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Lastname</TableCell>
+              <TableCell>Age</TableCell>
+              <TableCell>Salary</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

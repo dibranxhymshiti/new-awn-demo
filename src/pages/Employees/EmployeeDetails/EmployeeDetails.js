@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 
 const EmployeeDetails = () => {
   const params = useParams();
-  const title = params.id ? 'Ndrysho te dhenat' : 'Krijo punetore';
+  const title = params.id ? 'Update data' : 'Add employee';
 
   return (
     <PaperPadding>
@@ -23,7 +23,8 @@ const EmployeeDetails = () => {
       <Grid container spacing={6}>
         <Grid item xs={12} sm={6}>
           <TextField
-            label="Emri"
+            variant="outlined"
+            label="Name"
             name="firstName"
             id="firstName"
             required
@@ -33,7 +34,8 @@ const EmployeeDetails = () => {
 
         <Grid item xs={12} sm={6}>
           <TextField
-            label="Mbiemri"
+            variant="outlined"
+            label="Lastname"
             name="lastName"
             id="lastName"
             required
@@ -42,17 +44,31 @@ const EmployeeDetails = () => {
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <TextField label="Komuna" name="city" id="city" required fullWidth />
+          <TextField
+            variant="outlined"
+            label="City"
+            name="city"
+            id="city"
+            required
+            fullWidth
+          />
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <TextField label="Adresa" name="address" id="address" fullWidth />
+          <TextField
+            variant="outlined"
+            label="Adresa"
+            name="address"
+            id="address"
+            fullWidth
+          />
         </Grid>
 
         <Grid container item justifyContent="space-between">
           <Grid item xs={6} md={2}>
             <TextField
-              label="Paga ditore"
+              variant="outlined"
+              label="Salary"
               name="payRate"
               id="payRate"
               required
@@ -77,7 +93,7 @@ const EmployeeDetails = () => {
             alignItems="flex-end"
           >
             <Button variant="contained" color="primary">
-              Ruaj
+              Save
             </Button>
           </Grid>
         </Grid>
