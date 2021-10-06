@@ -1,21 +1,18 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { styled } from '@material-ui/core/styles';
 import { useTheme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import TableCell, { tableCellClasses } from '@material-ui/core/TableCell';
+import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
-import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import LastPageIcon from '@material-ui/icons/LastPage';
 import Typography from '@material-ui/core/Typography';
 import TableHead from '@material-ui/core/TableHead';
 import Button from '@material-ui/core/Button';
@@ -31,20 +28,12 @@ function TablePaginationActions(props) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
 
-  const handleFirstPageButtonClick = (event) => {
-    onPageChange(event, 0);
-  };
-
   const handleBackButtonClick = (event) => {
     onPageChange(event, page - 1);
   };
 
   const handleNextButtonClick = (event) => {
     onPageChange(event, page + 1);
-  };
-
-  const handleLastPageButtonClick = (event) => {
-    onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
   };
 
   return (
@@ -94,16 +83,16 @@ const Dashboard = () => {
   }));
 
   const rows = [
-    { name: 'ongoing', calories: 'Admin Work', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$500', talent: 'Jennifer Anniston', color: 'red' },
-    { name: 'completed', calories: 'IT Project', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$200', talent: 'John Goodman', color: 'blue' },
-    { name: 'draft', calories: 'New Training', fat: 'Marketing', carbs: 'June 5th - June 8th', protein: '$700', talent: 'Brad Pitt', color: 'green' },
-    { name: 'payment due', calories: 'UX/Website Design', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$250', talent: 'Jennifer Anniston', color: 'purple' },
-    { name: 'pending approval', calories: 'New desiogn Mock-up', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$11500', talent: 'Jennifer Anniston', color: 'orange' },
-    { name: 'ongoing', calories: 'Admin Work', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$500', talent: 'Jennifer Anniston', color: 'orange' },
-    { name: 'completed', calories: 'IT Project', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$200', talent: 'John Goodman', color: 'purple' },
-    { name: 'draft', calories: 'New Training', fat: 'Marketing', carbs: 'June 5th - June 8th', protein: '$700', talent: 'Brad Pitt', color: 'green' },
-    { name: 'payment due', calories: 'UX/Website Design', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$250', talent: 'Jennifer Anniston', color: 'red' },
-    { name: 'pending approval', calories: 'New desiogn Mock-up', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$11500', talent: 'Jennifer Anniston', color: 'green' }
+    { name: 'ongoing', calories: 'Admin Work', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$500', talent: 'Jennifer Anniston', color: 'Lavender' },
+    { name: 'completed', calories: 'IT Project', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$200', talent: 'John Goodman', color: 'LightSkyBlue' },
+    { name: 'draft', calories: 'New Training', fat: 'Marketing', carbs: 'June 5th - June 8th', protein: '$700', talent: 'Brad Pitt', color: 'LightGreen' },
+    { name: 'payment due', calories: 'UX/Website Design', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$250', talent: 'Jennifer Anniston', color: 'LightPink' },
+    { name: 'pending approval', calories: 'New desiogn Mock-up', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$11500', talent: 'Jennifer Anniston', color: 'LemonChiffon' },
+    { name: 'completed', calories: 'IT Project', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$200', talent: 'John Goodman', color: 'LightSkyBlue' },
+    { name: 'payment due', calories: 'UX/Website Design', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$250', talent: 'Jennifer Anniston', color: 'LightPink' },
+    { name: 'draft', calories: 'New Training', fat: 'Marketing', carbs: 'June 5th - June 8th', protein: '$700', talent: 'Brad Pitt', color: 'LightGreen' },
+    { name: 'pending approval', calories: 'New desiogn Mock-up', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$11500', talent: 'Jennifer Anniston', color: 'LemonChiffon' },
+    { name: 'ongoing', calories: 'Admin Work', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$500', talent: 'Jennifer Anniston', color: 'Lavender' },
   ]
 
   const handleChangePage = (event, newPage) => {
@@ -120,10 +109,30 @@ const Dashboard = () => {
         Welcome back, Bill
       </Typography>
       <Box component='div' >
-        <SearchIcon style={{ marginLeft: 30 }} fontSize='medium' />
-        <CloudDownloadIcon style={{ marginLeft: 30 }} fontSize='medium' />
-        <ViewColumnIcon style={{ marginLeft: 30 }} fontSize='medium' />
-        <FilterListIcon style={{ marginLeft: 30 }} fontSize='medium' />
+        <IconButton
+          aria-label="edit icon"
+          style={{ marginLeft: 20 }}
+        >
+          <SearchIcon fontSize='medium' />
+        </IconButton>
+        <IconButton
+          aria-label="edit icon"
+          style={{ marginLeft: 20 }}
+        >
+          <CloudDownloadIcon fontSize='medium' />
+        </IconButton>
+        <IconButton
+          aria-label="edit icon"
+          style={{ marginLeft: 20 }}
+        >
+          <ViewColumnIcon fontSize='medium' />
+        </IconButton>
+        <IconButton
+          aria-label="edit icon"
+          style={{ marginLeft: 20 }}
+        >
+          <FilterListIcon fontSize='medium' />
+        </IconButton>
       </Box>
 
     </Box>
@@ -141,14 +150,17 @@ const Dashboard = () => {
           </TableRow>
         </StyledTableHead>
         <TableBody>
-        {(rowsPerPage > 0
+          {(rowsPerPage > 0
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
             <StyledTableRow sx={{ mx: 10, px: 10 }} key={row.name}>
               <StyledTableCell align="left">
                 <Box component='div'
-                  sx={{ backgroundColor: row.color, textAlign: 'center', fontWeight: '500', textTransform: 'capitalize', padding: 2, borderRadius: '0 4px 4px 0', color: 'primary.main' }}>
+                  sx={{
+                    backgroundColor: row.color,
+                    textAlign: 'center', fontWeight: '500', textTransform: 'capitalize', padding: 2, borderRadius: '0 4px 4px 0', color: 'SlateGray'
+                  }}>
                   {row.name}
                 </Box>
               </StyledTableCell>
