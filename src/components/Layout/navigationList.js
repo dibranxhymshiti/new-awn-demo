@@ -1,5 +1,4 @@
 import {
-  DAILY_REPORTS,
   EMPLOYEES,
   MONTHLY_REPORTS,
   ROOT,
@@ -25,7 +24,6 @@ export const navigationList = [
   {
     id: 2,
     name: 'Work',
-    route: DAILY_REPORTS,
     icon: <AssignmentIcon />,
     subMenu: [
       {
