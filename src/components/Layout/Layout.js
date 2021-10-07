@@ -28,6 +28,7 @@ import {
 import { useLayoutStyles } from './layoutStyles';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import Button from '@material-ui/core/Button';
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 
 const Layout = ({ children }) => {
   const classes = useLayoutStyles();
@@ -331,6 +332,10 @@ const Layout = ({ children }) => {
                     size="small"
                     variant="outlined"
                   />
+                </Box>
+                <Box display="flex">
+                  <AttachFileIcon color="primary" />
+                  <Typography color="primary">Add attachment</Typography>
                 </Box>
               </Grid>
             </Grid>
