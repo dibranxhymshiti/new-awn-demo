@@ -72,5 +72,11 @@ export const useLayoutStyles = makeStyles((theme) => ({
   },
   active: {
     backgroundColor: '#F6F7FB'
+  },
+  borderRightDotted: {
+    borderRight: '1px dotted gray'
+  },
+  dialog: {
+    padding: 20
   }
 }));
