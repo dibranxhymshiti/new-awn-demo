@@ -69,9 +69,15 @@ const Dashboard = () => {
       paddingLeft: 0,
     },
   }));
+  const StyledFooterRow = styled(TableRow)(({ theme }) => ({
+    [`&:last-child td`]: {
+      borderBottom: 0,
+    },
+  }));
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     [`&.MuiTableRow-root`]: {
       marginTop: '10px',
+      boxShadow: '5px black',
       background: 'white'
     },
   }));
@@ -87,11 +93,11 @@ const Dashboard = () => {
     { name: 'completed', calories: 'IT Project', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$200', talent: 'John Goodman', color: 'LightSkyBlue' },
     { name: 'draft', calories: 'New Training', fat: 'Marketing', carbs: 'June 5th - June 8th', protein: '$700', talent: 'Brad Pitt', color: 'LightGreen' },
     { name: 'payment due', calories: 'UX/Website Design', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$250', talent: 'Jennifer Anniston', color: 'LightPink' },
-    { name: 'pending approval', calories: 'New desiogn Mock-up', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$11500', talent: 'Jennifer Anniston', color: 'LemonChiffon' },
+    { name: 'pending approval', calories: 'New design Mock-up', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$11500', talent: 'Jennifer Anniston', color: 'LemonChiffon' },
     { name: 'completed', calories: 'IT Project', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$200', talent: 'John Goodman', color: 'LightSkyBlue' },
     { name: 'payment due', calories: 'UX/Website Design', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$250', talent: 'Jennifer Anniston', color: 'LightPink' },
     { name: 'draft', calories: 'New Training', fat: 'Marketing', carbs: 'June 5th - June 8th', protein: '$700', talent: 'Brad Pitt', color: 'LightGreen' },
-    { name: 'pending approval', calories: 'New desiogn Mock-up', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$11500', talent: 'Jennifer Anniston', color: 'LemonChiffon' },
+    { name: 'pending approval', calories: 'New design Mock-up', fat: 'Design', carbs: 'June 5th - June 8th', protein: '$11500', talent: 'Jennifer Anniston', color: 'LemonChiffon' },
     { name: 'ongoing', calories: 'Admin Work', fat: 'Sales', carbs: 'June 5th - June 8th', protein: '$500', talent: 'Jennifer Anniston', color: 'Lavender' },
   ]
 
@@ -103,7 +109,7 @@ const Dashboard = () => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  return <div>
+  return <div >
     <Box component='div' sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <Typography variant="h2" gutterBottom component="div">
         Welcome back, Bill
@@ -137,7 +143,7 @@ const Dashboard = () => {
 
     </Box>
     <TableContainer sx={{ background: 'transparent' }} component={StyledPaper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <Table sx={{ minWidth: 1000 }} aria-label="customized table">
         <StyledTableHead>
           <TableRow>
             <TableCell align="center">Project Status</TableCell>
@@ -149,7 +155,7 @@ const Dashboard = () => {
             <TableCell align="center">Actions</TableCell>
           </TableRow>
         </StyledTableHead>
-        <TableBody>
+        <TableBody >
           {(rowsPerPage > 0
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
@@ -159,17 +165,17 @@ const Dashboard = () => {
                 <Box component='div'
                   sx={{
                     backgroundColor: row.color,
-                    textAlign: 'center', fontWeight: '500', textTransform: 'capitalize', padding: 2, borderRadius: '0 4px 4px 0', color: 'SlateGray'
+                    textAlign: 'center', fontWeight: '500', textTransform: 'uppercase', padding: 2, borderRadius: '0 4px 4px 0', color: 'SlateGray'
                   }}>
                   {row.name}
                 </Box>
               </StyledTableCell>
-              <TableCell align="left">{row.calories}</TableCell>
-              <TableCell align="left">{row.fat}</TableCell>
-              <TableCell align="left">{row.carbs}</TableCell>
-              <TableCell align="left">{row.protein}</TableCell>
-              <TableCell align="left">{row.talent}</TableCell>
-              <TableCell align="center">
+              <TableCell style={{ fontWeight: '400', color: 'gray' }} align="left">{row.calories}</TableCell>
+              <TableCell style={{ fontWeight: '400', color: 'gray' }} align="left">{row.fat}</TableCell>
+              <TableCell style={{ fontWeight: '400', color: 'gray' }} align="left">{row.carbs}</TableCell>
+              <TableCell style={{ fontWeight: '400', color: 'gray' }} align="left">{row.protein}</TableCell>
+              <TableCell style={{ fontWeight: '400', color: 'gray' }} align="left">{row.talent}</TableCell>
+              <TableCell style={{ fontWeight: '400', color: 'gray' }} align="center">
                 <IconButton
                   aria-label="edit icon"
                 >
@@ -184,14 +190,14 @@ const Dashboard = () => {
             </StyledTableRow>
           ))}
         </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TableCell>
-              <Button variant="contained" disableElevation>
+        <TableFooter style={{borderBottom: 'none'}}>
+          <StyledFooterRow style={{borderBottom: 'none'}}>
+            <StyledTableCell>
+              <Button variant="contained" style={{ width: '100%' }} color='primary' disableElevation>
                 View all
                 <ArrowRightAltIcon fontSize='medium' />
               </Button>
-            </TableCell>
+            </StyledTableCell>
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
               // colSpan={5}
@@ -208,7 +214,7 @@ const Dashboard = () => {
               onRowsPerPageChange={handleChangeRowsPerPage}
               ActionsComponent={TablePaginationActions}
             />
-          </TableRow>
+          </StyledFooterRow>
         </TableFooter>
       </Table>
     </TableContainer>
